@@ -11,6 +11,7 @@ task("accounts", "Prints the list of accounts", async (taskArgs, hre) => {
 });
 
 const config: HardhatUserConfig = {
+  // defaultNetwork: "sepolia",
   solidity: {
     compilers: [
       {
@@ -26,17 +27,24 @@ const config: HardhatUserConfig = {
   },
 
   networks: {
-    mumbai: {
-      url: "https://rpc.ankr.com/polygon_mumbai",
-      accounts: {
-        mnemonic: process.env.NODE_ARRAY,
-      },
-    },
     hardhat: {
       forking: {
         url: "https://rpc.ankr.com/bsc",
       },
     },
+    sepolia: {
+      url: process.env.API_URL,
+      accounts: [`0x${process.env.PRIVATE_KEY}`],
+    },
+  },
+  paths: {
+    sources: "./contracts",
+    tests: "./test",
+    cache: "./cache",
+    artifacts: "./artifacts",
+  },
+  mocha: {
+    timeout: 40000,
   },
 };
 

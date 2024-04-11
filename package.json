@@ -5,7 +5,7 @@
   "scripts": {
     "localnode": "npx hardhat node",
     "deploy:local": "npx hardhat run --network localhost scripts/deploy.ts",
-    "deploy:mumbai": "npx hardhat run --network mumbai scripts/deploy.ts",
+    "deploy:sepolia": "npx hardhat run --network sepolia scripts/deploy.ts",
     "compile": "npx hardhat compile",
     "coverage": "npx hardhat coverage",
     "docgen": "npx hardhat docgen",
